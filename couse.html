@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/custom.css">
+  
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg bg-light navbar-light fixed-top">
+  <a class="navbar-brand" href="index.html">Code</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav ml-auto" >
+      <li class="nav-item">
+        <a class="nav-link" href="index.html">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="couse.html">Courses</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="Fq.html">FQ</a>
+      </li> 
+      <li class="nav-item">
+        <a class="nav-link" href="contect.html">Contact</a>
+      </li>   
+    </ul>
+  </div>  
+  
+</nav>
+
+<!-- Masthead-->
+<header class="masthead" id="mastheadCoursePage">
+  <div class="container">
+    <div id="typed-strings">
+      <div class="masthead-subheading">Welcome To Our Studio!</div>
+      <div class="masthead-heading text-uppercase">It's Nice To Meet You</div>
+      <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Check out</a>
+  </div>
+  </div>
+</header>
+
+<br>
+<br>
+
+ <!-- Courses Table here-->
+<section class="page-section" id="services">
+  <div class="container">
+      <div class="text-center">
+          <h2 class="section-heading text-uppercase">Our Cousers</h2>
+          <h3 class="section-subheading text-muted">Front-endng and Back-ending</h3>
+      </div>
+    
+     <div class="container">
+     <table class="table table-bordered table-hover">
+     <thead>
+       <tr>
+         <th> Course Name</th>
+         <th> Lavel</th>
+         <th> Data</th>
+         <th> Price</th>
+         <th> Requirements</th>
+       </tr>
+     </thead>
+       <tbody id="data">
+       </tbody>
+     </table>  
+  </div>
+  </div>
+</section>
+   <!-- Courses Table End-->
+
+ <!-- Footer-->
+ <footer class="footer py-4">
+  <div class="container">
+      <div class="row align-items-center">
+          <div class="col-lg-4 text-lg-left">Code ©  2021</div>
+          <div class="col-lg-4 my-3 my-lg-0">
+            
+            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="bi bi-twitter"></i></a>
+            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="bi bi-facebook"></i></a>
+            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="bi bi-linkedin"></i></a>
+          </div>
+         
+      </div>
+  </div>
+</footer>
+ <!-- Footer End-->
+
+
+ 
+<!-- Back to to button-->
+
+<div class="goBack">
+  <button id="scrollToTopBtn"><i class="bi bi-arrow-up-circle-fill" ></i></button>
+</div>
+
+<!-- Back to to button End-->
+
+
+
+<script>
+  
+var scrollToTopBtn = document.getElementById("scrollToTopBtn")
+var rootElement = document.documentElement
+
+function scrollToTop() {
+  // Scroll to top logic
+  rootElement.scrollTo({
+    top: 50,
+    behavior: "smooth"
+  })
+}
+scrollToTopBtn.addEventListener("click", scrollToTop)
+
+
+
+
+  
+$.getJSON("https://run.mocky.io/v3/7a2f2873-d15f-402c-8927-457419f6f7a7", function(data) {
+            var items = [];
+          var junat = data.trainNumber;
+             var aikataulu = data.timeTableRows;
+            $.each(data, function(key, d) {
+              items.push("<tr>");
+                items.push("<td>  " +d.courseName + "</td>");
+                items.push("<td>  " + d.lavel + "</td>");
+                 items.push("<td>  " + d.date + "</td>");
+                 items.push("<td> " + d.price + "</td>");
+                 items.push("<td> " + d.requirements + "</td>");
+                 items.push("</tr>");
+
+         
+               
+               
+            });
+            
+            $("#data").append(items.join(""));
+
+        }); 
+
+    
+
+
+
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- jQuery Lightbox plugin-->
+<script src="js/lightbox.min.js"></script>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
+
+
